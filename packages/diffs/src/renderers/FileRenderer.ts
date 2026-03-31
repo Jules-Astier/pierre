@@ -46,6 +46,11 @@ import {
 } from '../utils/hast_utils';
 import { isFilePlainText } from '../utils/isFilePlainText';
 import { iterateOverFile } from '../utils/iterateOverFile';
+import {
+  type NormalizedLineDecorationMap,
+  type NormalizedLineDecorations,
+  normalizeFileDecorations,
+} from '../utils/normalizeLineDecorations';
 import { renderFileWithHighlighter } from '../utils/renderFileWithHighlighter';
 import { shouldUseTokenTransformer } from '../utils/shouldUseTokenTransformer';
 import { splitFileContents } from '../utils/splitFileContents';
@@ -93,6 +98,7 @@ export class FileRenderer<LAnnotation = undefined, LDecoration = undefined> {
   private renderCache: RenderedFileASTCache | undefined;
   private computedLang: SupportedLanguages = 'text';
   private lineAnnotations: AnnotationLineMap<LAnnotation> = {};
+  private decorationsByLine: NormalizedLineDecorationMap = {};
   private lineCache: LineCache | undefined;
 
   constructor(
@@ -127,8 +133,10 @@ export class FileRenderer<LAnnotation = undefined, LDecoration = undefined> {
   }
 
   public setDecorations(
-    _decorations: readonly FileDecorationItem<LDecoration>[]
-  ): void {}
+    decorations: readonly FileDecorationItem<LDecoration>[]
+  ): void {
+    this.decorationsByLine = normalizeFileDecorations(decorations);
+  }
 
   public cleanUp(): void {
     this.recycle();
@@ -137,6 +145,8 @@ export class FileRenderer<LAnnotation = undefined, LDecoration = undefined> {
   }
 
   public recycle(): void {
+    this.lineAnnotations = {};
+    this.decorationsByLine = {};
     this.clearRenderCache();
     this.highlighter = undefined;
     this.workerManager?.cleanUpTasks(this);
@@ -222,6 +232,15 @@ export class FileRenderer<LAnnotation = undefined, LDecoration = undefined> {
     }
     this.lineCache = lineCache;
     return lineCache.lines;
+  }
+
+  protected getLineDecorations(
+    lineNumber: number | undefined
+  ): NormalizedLineDecorations | undefined {
+    if (lineNumber == null) {
+      return undefined;
+    }
+    return this.decorationsByLine[lineNumber];
   }
 
   public renderFile(
