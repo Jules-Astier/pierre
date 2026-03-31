@@ -136,7 +136,9 @@ export function ReviewUI({ domain, initialUrl, path }: ReviewUIProps) {
     });
   }, [workerPool, darkTheme, lightTheme, themesHydrated]);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const viewerRef = useRef<CodeViewHandle<CommentMetadata> | null>(null);
+  const viewerRef = useRef<CodeViewHandle<CommentMetadata, undefined> | null>(
+    null
+  );
   const handlePatchLoadStart = useCallback(() => {
     setFileTreeOverlayOpen(false);
   }, []);

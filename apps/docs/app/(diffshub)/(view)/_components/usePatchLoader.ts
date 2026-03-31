@@ -58,7 +58,7 @@ interface UsePatchLoaderOptions {
   domain?: string;
   onLoadStart(): void;
   path: string;
-  viewerRef: RefObject<CodeViewHandle<CommentMetadata> | null>;
+  viewerRef: RefObject<CodeViewHandle<CommentMetadata, undefined> | null>;
 }
 
 interface UsePatchLoaderResult {
@@ -529,7 +529,7 @@ function getLineHashApplyKey(viewerKey: number, hash: string): string {
 }
 
 function applyCodeViewLineHashTarget(
-  viewer: CodeViewHandle<CommentMetadata>,
+  viewer: CodeViewHandle<CommentMetadata, undefined>,
   target: CodeViewLineHashTarget
 ): boolean {
   const item = viewer.getItem(target.itemId);
@@ -566,7 +566,7 @@ function applyCodeViewLineHashTarget(
 }
 
 function applyCodeViewItemIdRename(
-  viewer: CodeViewHandle<CommentMetadata> | null,
+  viewer: CodeViewHandle<CommentMetadata, undefined> | null,
   rename: CodeViewItemIdRename
 ): void {
   viewer?.updateItemId(rename.oldId, rename.newId);

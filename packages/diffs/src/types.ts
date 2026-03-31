@@ -469,36 +469,60 @@ type OptionalMetadata<T> = T extends undefined
   ? { metadata?: undefined }
   : { metadata: T };
 
-export type LineAnnotation<T = undefined> = {
+export type LineAnnotation<Metadata = undefined> = {
   lineNumber: number;
-} & OptionalMetadata<T>;
+} & OptionalMetadata<Metadata>;
 
-export type DiffLineAnnotation<T = undefined> = {
+export type DiffLineAnnotation<Metadata = undefined> = {
   side: AnnotationSide;
   lineNumber: number;
-} & OptionalMetadata<T>;
+} & OptionalMetadata<Metadata>;
 
-export type CodeViewFileItem<T = undefined> = {
+export type DecorationRange<Metadata = undefined> = {
+  lineNumber: number;
+  endLineNumber?: number;
+  bar?: boolean;
+  color?: string;
+  background?: boolean | string;
+} & OptionalMetadata<Metadata>;
+
+export type FileDecorationItem<Metadata = undefined> =
+  DecorationRange<Metadata>;
+
+export type DiffDecorationItem<Metadata = undefined> =
+  DecorationRange<Metadata> & {
+    side: AnnotationSide;
+  };
+
+export type CodeViewFileItem<
+  LAnnotation = undefined,
+  LDecoration = undefined,
+> = {
   id: string;
   type: 'file';
   file: FileContents;
-  annotations?: LineAnnotation<T>[];
+  annotations?: LineAnnotation<LAnnotation>[];
+  decorations?: FileDecorationItem<LDecoration>[];
   version?: number;
   collapsed?: boolean;
 };
 
-export type CodeViewDiffItem<T = undefined> = {
+export type CodeViewDiffItem<
+  LAnnotation = undefined,
+  LDecoration = undefined,
+> = {
   id: string;
   type: 'diff';
   fileDiff: FileDiffMetadata;
-  annotations?: DiffLineAnnotation<T>[];
+  annotations?: DiffLineAnnotation<LAnnotation>[];
+  decorations?: DiffDecorationItem<LDecoration>[];
   version?: number;
   collapsed?: boolean;
 };
 
-export type CodeViewItem<T = undefined> =
-  | CodeViewFileItem<T>
-  | CodeViewDiffItem<T>;
+export type CodeViewItem<LAnnotation = undefined, LDecoration = undefined> =
+  | CodeViewFileItem<LAnnotation, LDecoration>
+  | CodeViewDiffItem<LAnnotation, LDecoration>;
 
 export interface CodeViewPositionScrollTarget {
   type: 'position';
