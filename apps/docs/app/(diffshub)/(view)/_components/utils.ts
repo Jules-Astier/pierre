@@ -12,6 +12,7 @@ import type {
   CodeViewCommentFileByItemId,
   CodeViewDeletedCommentEvent,
   CodeViewFileTreeSort,
+  CodeViewFileTreeSource,
   CodeViewSavedCommentEntry,
   CodeViewSavedCommentEvent,
   CodeViewSavedCommentItem,
@@ -422,6 +423,7 @@ export function filterCodeViewFileTreeSource(
 
   return {
     gitStatus: filteredGitStatus,
+    pathCount: filteredPaths.length,
     paths: filteredPaths,
     pathToItemId: filteredPathToItemId,
     sort: source.sort,

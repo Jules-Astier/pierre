@@ -149,7 +149,7 @@ export const CodeViewHeader = memo(function CodeViewHeader({
                   <IconGearFill className="size-4 md:size-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-52">
+              <DropdownMenuContent align="end" className="w-58 p-2">
                 <DropdownMenuItem
                   className="cursor-default p-0"
                   onSelect={(e) => e.preventDefault()}
