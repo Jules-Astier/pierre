@@ -26,14 +26,21 @@ import {
   removeSavedCommentSidebarEntry,
   upsertSavedCommentSidebarEntry,
 } from './utils';
+import type { InitialDiffshubPatchResponse } from '@/lib/diffshubPatchTypes';
 
 interface ReviewUIProps {
   domain?: string;
+  initialPatchResponse: Promise<InitialDiffshubPatchResponse>;
   initialUrl: string;
   path: string;
 }
 
-export function ReviewUI({ domain, initialUrl, path }: ReviewUIProps) {
+export function ReviewUI({
+  domain,
+  initialPatchResponse,
+  initialUrl,
+  path,
+}: ReviewUIProps) {
   useEffect(preloadAvatars, []);
 
   const isWorkerPoolReadyOrDisable = useIsWorkerPoolReadyOrDisabled();
@@ -68,6 +75,7 @@ export function ReviewUI({ domain, initialUrl, path }: ReviewUIProps) {
   } = usePatchLoader({
     collapseMode,
     domain,
+    initialPatchResponse,
     onLoadStart: handlePatchLoadStart,
     path,
     viewerRef,
