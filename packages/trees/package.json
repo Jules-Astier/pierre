@@ -1,6 +1,6 @@
 {
-  "name": "@pierre/trees",
-  "version": "1.0.0-beta.4",
+  "name": "@baguette-studios/trees",
+  "version": "1.0.0-beta.1",
   "license": "apache-2.0",
   "files": [
     "dist",

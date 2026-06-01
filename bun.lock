@@ -50,7 +50,7 @@
         "@pierre/icons": "catalog:",
         "@pierre/theme": "catalog:",
         "@pierre/tree-test-data": "workspace:*",
-        "@pierre/trees": "workspace:*",
+        "@baguette-studios/trees": "workspace:*",
         "@pierre/truncate": "workspace:*",
         "@radix-ui/react-avatar": "catalog:",
         "@radix-ui/react-dialog": "catalog:",
@@ -196,7 +196,7 @@
       "version": "0.0.1",
     },
     "packages/trees": {
-      "name": "@pierre/trees",
+      "name": "@baguette-studios/trees",
       "version": "1.0.0-beta.4",
       "dependencies": {
         "@pierre/path-store": "workspace:*",
@@ -671,7 +671,7 @@
 
     "@pierre/tree-test-data": ["@pierre/tree-test-data@workspace:packages/tree-test-data"],
 
-    "@pierre/trees": ["@pierre/trees@workspace:packages/trees"],
+    "@baguette-studios/trees": ["@baguette-studios/trees@workspace:packages/trees"],
 
     "@pierre/truncate": ["@pierre/truncate@workspace:packages/truncate"],
 

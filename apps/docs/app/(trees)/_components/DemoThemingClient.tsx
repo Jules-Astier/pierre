@@ -1,5 +1,14 @@
 'use client';
 
+import {
+  themeToTreeStyles,
+  type TreeThemeStyles,
+} from '@baguette-studios/trees';
+import {
+  FileTree,
+  type FileTreePreloadedData,
+  useFileTree,
+} from '@baguette-studios/trees/react';
 import { resolveTheme } from '@pierre/diffs';
 import {
   IconCheck,
@@ -8,12 +17,6 @@ import {
   IconColorDark,
   IconColorLight,
 } from '@pierre/icons';
-import { themeToTreeStyles, type TreeThemeStyles } from '@pierre/trees';
-import {
-  FileTree,
-  type FileTreePreloadedData,
-  useFileTree,
-} from '@pierre/trees/react';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 

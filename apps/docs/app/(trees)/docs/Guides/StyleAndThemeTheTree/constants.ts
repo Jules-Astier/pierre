@@ -30,7 +30,7 @@ export const STYLE_THEME_CSS_VARIABLES = docsCodeSnippet(
 
 export const STYLE_THEME_TO_TREE_STYLES = docsCodeSnippet(
   'theme-to-tree-styles.tsx',
-  `import { themeToTreeStyles } from '@pierre/trees';
+  `import { themeToTreeStyles } from '@baguette-studios/trees';
 
 const treeStyles = themeToTreeStyles(theme);
 

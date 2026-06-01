@@ -4,7 +4,7 @@ import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 
 import type { OverviewFileTreeOptions } from './constants';
 

@@ -147,7 +147,7 @@ const EXCLUDED_CONSTANTS = new Set([
 const SEE_ALSO: Record<Exclude<ProductId, 'diffshub'>, Product['seeAlso']> = {
   diffs: [
     {
-      label: '@pierre/trees',
+      label: '@baguette-studios/trees',
       url: 'https://trees.software/llms.txt',
       description: 'File tree rendering library',
     },
@@ -166,7 +166,7 @@ const SEE_ALSO: Record<Exclude<ProductId, 'diffshub'>, Product['seeAlso']> = {
     {
       label: 'Full documentation',
       url: 'https://trees.software/llms-full.txt',
-      description: 'Complete @pierre/trees docs in a single file',
+      description: 'Complete @baguette-studios/trees docs in a single file',
     },
   ],
 };

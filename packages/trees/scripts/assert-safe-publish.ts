@@ -11,7 +11,7 @@ const pathStoreVersion = pkg.dependencies?.['@pierre/path-store'];
 if (pathStoreVersion != null) {
   console.error(
     [
-      'Direct publish is disabled for @pierre/trees.',
+      'Direct publish is disabled for @baguette-studios/trees.',
       `package.json still depends on @pierre/path-store (${pathStoreVersion}), which is not published to npm.`,
       'Use `bun run publish-package -- --tag=beta` so the release script can publish the rewritten package.',
     ].join('\n')

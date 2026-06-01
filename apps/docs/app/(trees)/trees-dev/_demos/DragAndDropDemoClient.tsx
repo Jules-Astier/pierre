@@ -4,7 +4,7 @@ import {
   FileTree,
   type FileTreeDropResult,
   type FileTreeMutationEvent,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import {
   type DragEvent as ReactDragEvent,

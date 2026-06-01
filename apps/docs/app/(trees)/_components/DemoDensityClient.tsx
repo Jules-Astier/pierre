@@ -3,12 +3,12 @@
 import {
   FILE_TREE_DENSITY_PRESETS,
   type FileTreeDensityKeyword,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 

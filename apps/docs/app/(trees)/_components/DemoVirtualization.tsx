@@ -1,4 +1,4 @@
-import { preloadFileTree } from '@pierre/trees/ssr';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 import { TREE_NEW_VIEWPORT_HEIGHTS } from '../_lib/dimensions';
 import { DemoVirtualizationClient } from './DemoVirtualizationClient';

@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const SSR_API_EXAMPLE = docsCodeSnippet(
   'preload-file-tree.ts',
-  `import { preloadFileTree } from '@pierre/trees/ssr';
+  `import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 const payload = preloadFileTree({
   preparedInput,

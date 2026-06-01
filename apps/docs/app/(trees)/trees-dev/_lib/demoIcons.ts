@@ -1,4 +1,4 @@
-import type { FileTreeIcons } from '@pierre/trees';
+import type { FileTreeIcons } from '@baguette-studios/trees';
 
 export const DEMO_FILE_TREE_ICONS: FileTreeIcons = {
   byFileExtension: {

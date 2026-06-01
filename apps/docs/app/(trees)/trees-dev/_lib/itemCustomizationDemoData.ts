@@ -5,7 +5,7 @@ import type {
   FileTreeRowDecoration,
   FileTreeRowDecorationRenderer,
   GitStatusEntry,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 
 export type TreesDevGitStatusPresetId =
   | 'direct-file-statuses'

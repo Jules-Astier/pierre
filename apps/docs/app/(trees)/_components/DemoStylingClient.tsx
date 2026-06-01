@@ -1,11 +1,11 @@
 'use client';
 
-import { IconBulbFill } from '@pierre/icons';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
+import { IconBulbFill } from '@pierre/icons';
 import Link from 'next/link';
 import { type CSSProperties, useState } from 'react';
 

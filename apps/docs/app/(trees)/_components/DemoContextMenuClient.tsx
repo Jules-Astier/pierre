@@ -1,11 +1,14 @@
 'use client';
 
-import { IconRefresh } from '@pierre/icons';
 import type {
   ContextMenuTriggerMode,
   FileTreeCompositionOptions,
-} from '@pierre/trees';
-import { type FileTreePreloadedData, useFileTree } from '@pierre/trees/react';
+} from '@baguette-studios/trees';
+import {
+  type FileTreePreloadedData,
+  useFileTree,
+} from '@baguette-studios/trees/react';
+import { IconRefresh } from '@pierre/icons';
 import { TreeApp } from '@trees/_components/TreeApp';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';

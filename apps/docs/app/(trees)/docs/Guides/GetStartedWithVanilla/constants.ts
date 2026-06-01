@@ -2,14 +2,14 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const VANILLA_QUICKSTART_INSTALL = docsCodeSnippet(
   'install.sh',
-  `bun add @pierre/trees
-# npm: npm install @pierre/trees
-# pnpm: pnpm add @pierre/trees`
+  `bun add @baguette-studios/trees
+# npm: npm install @baguette-studios/trees
+# pnpm: pnpm add @baguette-studios/trees`
 );
 
 export const VANILLA_QUICKSTART_MOUNT_PROJECT_TREE = docsCodeSnippet(
   'mount-project-tree.ts',
-  `import { FileTree, type FileTreePreparedInput } from '@pierre/trees';
+  `import { FileTree, type FileTreePreparedInput } from '@baguette-studios/trees';
 
 export function mountProjectTree(
   container: HTMLElement,

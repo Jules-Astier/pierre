@@ -7,7 +7,7 @@ import type {
 
 // Mirrors only the underlying store event fields this module reads. These are
 // FileTree-prefixed on purpose: this file is emitted as a declaration entry,
-// and the private store package must not leak into @pierre/trees types.
+// and the private store package must not leak into @baguette-studios/trees types.
 type FileTreeStoreEventInvalidation = {
   canonicalChanged: boolean;
   projectionChanged: boolean;

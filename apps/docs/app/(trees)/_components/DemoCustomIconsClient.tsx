@@ -1,12 +1,12 @@
 'use client';
 
-import { IconBrush, IconFileTreeFill, IconFire } from '@pierre/icons';
-import type { FileTreeIcons } from '@pierre/trees';
+import type { FileTreeIcons } from '@baguette-studios/trees';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
+import { IconBrush, IconFileTreeFill, IconFire } from '@pierre/icons';
 import { type CSSProperties, type JSX, useState } from 'react';
 
 import { sampleFileList } from '../_lib/demo-data';

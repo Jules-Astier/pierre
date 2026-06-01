@@ -1,4 +1,4 @@
-import type { GitStatusEntry } from '@pierre/trees';
+import type { GitStatusEntry } from '@baguette-studios/trees';
 import { sampleFileList } from '@trees/_lib/demo-data';
 
 export interface ThemeGridItem {

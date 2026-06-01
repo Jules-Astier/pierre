@@ -1,7 +1,7 @@
 import {
   preloadFileTree,
   serializeFileTreeSsrPayload,
-} from '@pierre/trees/ssr';
+} from '@baguette-studios/trees/ssr';
 
 import { readSettingsCookies } from '../_components/readSettingsCookies';
 import { DensityDemoClient } from '../_demos/DensityDemoClient';

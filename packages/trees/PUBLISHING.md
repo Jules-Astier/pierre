@@ -1,12 +1,12 @@
-# Publishing `@pierre/trees`
+# Publishing `@baguette-studios/trees`
 
 Releases are driven by `packages/trees/scripts/publish.ts`. The script builds
 trees, packs a source tarball, rewrites the package metadata, repacks a final
 tarball, verifies that tarball, and uploads it to npm.
 
-Path-store is **not** published. Its code is inlined into `@pierre/trees`'
-`dist/` at build time via tsdown's `noExternal` configuration, so consumers only
-ever install `@pierre/trees`.
+Path-store is **not** published. Its code is inlined into
+`@baguette-studios/trees`' `dist/` at build time via tsdown's `noExternal`
+configuration, so consumers only ever install `@baguette-studios/trees`.
 
 ## 0. Bump the version
 
@@ -65,13 +65,14 @@ not mask packaging bugs. Do this against a beta publish (step 4 with
 
 In each:
 
-1. Install `@pierre/trees@<version>` from npm.
+1. Install `@baguette-studios/trees@<version>` from npm.
 2. Confirm `ls node_modules/@pierre` shows **only** `trees` (no `path-store`).
 3. Typecheck the consumer against its own `tsconfig`.
 4. Run a production build.
 5. Render a simple tree in a real browser.
-6. Exercise each subpath: `@pierre/trees`, `@pierre/trees/react`,
-   `@pierre/trees/ssr`, `@pierre/trees/web-components`.
+6. Exercise each subpath: `@baguette-studios/trees`,
+   `@baguette-studios/trees/react`, `@baguette-studios/trees/ssr`,
+   `@baguette-studios/trees/web-components`.
 
 **Bun note.** Bun's `minimum-release-age` protection can block fresh installs
 right after a publish. Use:
@@ -89,8 +90,8 @@ bun run publish-package -- --tag=beta
 Verify on npm:
 
 ```bash
-npm view @pierre/trees@<version> version
-npm view @pierre/trees dist-tags --json
+npm view @baguette-studios/trees@<version> version
+npm view @baguette-studios/trees dist-tags --json
 ```
 
 ## 5. Promote to `latest`
@@ -102,15 +103,15 @@ bun run publish-package -- --tag=latest --promote-latest --tag-release
 ```
 
 `--promote-latest` moves the `latest` dist-tag to this version. `--tag-release`
-creates and pushes a git tag (`@pierre/trees@<version>`).
+creates and pushes a git tag (`@baguette-studios/trees@<version>`).
 
 You can also split these into separate invocations:
 
 ```bash
 bun run publish-package -- --tag=latest     # publish under latest
-npm dist-tag add @pierre/trees@<version> latest
-git tag -a "@pierre/trees@<version>" -m "@pierre/trees <version>"
-git push origin "@pierre/trees@<version>"
+npm dist-tag add @baguette-studios/trees@<version> latest
+git tag -a "@baguette-studios/trees@<version>" -m "@baguette-studios/trees <version>"
+git push origin "@baguette-studios/trees@<version>"
 ```
 
 ## 6. Cleanup
@@ -145,5 +146,5 @@ the broken version stranded on npm with its bad `beta` tag.
       `@pierre/path-store` in `node_modules`)
 - [ ] `bun run publish-package -- --tag=beta` succeeded
 - [ ] `--tag=latest --promote-latest` run after smoke verification
-- [ ] git tag pushed (`@pierre/trees@<version>`)
+- [ ] git tag pushed (`@baguette-studios/trees@<version>`)
 - [ ] `bun run wt clean` from the monorepo root

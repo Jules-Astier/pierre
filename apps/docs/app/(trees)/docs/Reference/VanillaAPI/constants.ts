@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const VANILLA_API_EXAMPLE = docsCodeSnippet(
   'vanilla-api.ts',
-  `import { FileTree } from '@pierre/trees';
+  `import { FileTree } from '@baguette-studios/trees';
 
 const fileTree = new FileTree({
   paths: ['README.md', 'src/index.ts'],

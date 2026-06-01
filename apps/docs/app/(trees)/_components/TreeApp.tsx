@@ -1,5 +1,21 @@
 'use client';
 
+import type {
+  ContextMenuItem,
+  ContextMenuOpenContext,
+  FileTreeIcons,
+  FileTree as FileTreeModel,
+} from '@baguette-studios/trees';
+import {
+  createFileTreeIconResolver,
+  getBuiltInSpriteSheet,
+} from '@baguette-studios/trees';
+import {
+  FileTree,
+  type FileTreePreloadedData,
+  useFileTreeSearch,
+  useFileTreeSelection,
+} from '@baguette-studios/trees/react';
 import type { FileContents } from '@pierre/diffs';
 import { File, type FileOptions } from '@pierre/diffs/react';
 import {
@@ -10,22 +26,6 @@ import {
   IconSun,
   IconX,
 } from '@pierre/icons';
-import type {
-  ContextMenuItem,
-  ContextMenuOpenContext,
-  FileTreeIcons,
-  FileTree as FileTreeModel,
-} from '@pierre/trees';
-import {
-  createFileTreeIconResolver,
-  getBuiltInSpriteSheet,
-} from '@pierre/trees';
-import {
-  FileTree,
-  type FileTreePreloadedData,
-  useFileTreeSearch,
-  useFileTreeSelection,
-} from '@pierre/trees/react';
 import type {
   CSSProperties,
   ReactNode,

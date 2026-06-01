@@ -1,4 +1,4 @@
-import type { GitStatusEntry } from '@pierre/trees';
+import type { GitStatusEntry } from '@baguette-studios/trees';
 
 export const TREE_NEW_GIT_STATUS_EXPANDED_PATHS = [
   'src',

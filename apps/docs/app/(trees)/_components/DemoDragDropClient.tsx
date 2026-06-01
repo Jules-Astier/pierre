@@ -1,11 +1,11 @@
 'use client';
 
-import { IconLock, IconRefresh } from '@pierre/icons';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
+import { IconLock, IconRefresh } from '@pierre/icons';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';

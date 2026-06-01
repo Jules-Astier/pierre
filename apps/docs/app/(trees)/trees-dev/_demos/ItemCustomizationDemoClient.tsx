@@ -4,7 +4,7 @@ import {
   type ContextMenuItem,
   type ContextMenuOpenContext,
   FileTree,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import {
   type ChangeEvent,

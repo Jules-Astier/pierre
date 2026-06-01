@@ -1,7 +1,7 @@
 import {
   preloadFileTree,
   serializeFileTreeSsrPayload,
-} from '@pierre/trees/ssr';
+} from '@baguette-studios/trees/ssr';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 
 import { readSettingsCookies } from '../_components/readSettingsCookies';

@@ -7,7 +7,7 @@ export const NAVIGATE_REACT_SEARCH = docsCodeSnippet(
   useFileTree,
   useFileTreeSearch,
   useFileTreeSelection,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 
 export function SearchPanel({ paths }: { paths: readonly string[] }) {
   const { model } = useFileTree({

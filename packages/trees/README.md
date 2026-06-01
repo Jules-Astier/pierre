@@ -1,16 +1,18 @@
-# @pierre/trees
+# @baguette-studios/trees
 
 Path-first file tree UI for the web.
 
-`@pierre/trees` ships one implementation through five public entry points:
+`@baguette-studios/trees` ships one implementation through five public entry
+points:
 
-- `@pierre/trees` — vanilla model, mounting API, prepared input helpers, icons,
-  theming, and core types
-- `@pierre/trees/react` — React hooks and `<FileTree model={...} />`
-- `@pierre/trees/react-native` — React Native hooks and a native
+- `@baguette-studios/trees` — vanilla model, mounting API, prepared input
+  helpers, icons, theming, and core types
+- `@baguette-studios/trees/react` — React hooks and `<FileTree model={...} />`
+- `@baguette-studios/trees/react-native` — React Native hooks and a native
   `<FileTree model={...} />`
-- `@pierre/trees/ssr` — preload helpers for declarative-shadow-DOM SSR
-- `@pierre/trees/web-components` — custom-element registration side effect
+- `@baguette-studios/trees/ssr` — preload helpers for declarative-shadow-DOM SSR
+- `@baguette-studios/trees/web-components` — custom-element registration side
+  effect
 
 The tree renders inside a shadow root and keeps public state keyed by canonical
 path strings, not internal numeric IDs.
@@ -18,13 +20,13 @@ path strings, not internal numeric IDs.
 ## Install
 
 ```bash
-bun add @pierre/trees
+bun add @baguette-studios/trees
 ```
 
 ## Vanilla usage
 
 ```ts
-import { FileTree } from '@pierre/trees';
+import { FileTree } from '@baguette-studios/trees';
 
 const mount = document.getElementById('mount')!;
 mount.style.height = '320px';
@@ -55,7 +57,10 @@ Prepare large or frequently reloaded path lists once, then pass the prepared
 result to `FileTree`.
 
 ```ts
-import { FileTree, preparePresortedFileTreeInput } from '@pierre/trees';
+import {
+  FileTree,
+  preparePresortedFileTreeInput,
+} from '@baguette-studios/trees';
 
 const paths = ['src/', 'src/index.ts', 'README.md'];
 const preparedInput = preparePresortedFileTreeInput(paths);
@@ -71,7 +76,7 @@ Use `prepareFileTreeInput(paths)` for raw input. Use
 ```tsx
 'use client';
 
-import { FileTree, useFileTree } from '@pierre/trees/react';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 
 export function Example({ paths }: { paths: string[] }) {
   const { model } = useFileTree({
@@ -91,13 +96,13 @@ export function Example({ paths }: { paths: string[] }) {
 }
 ```
 
-`@pierre/trees/react` exports `FileTree`, `useFileTree`, `useFileTreeSearch`,
-`useFileTreeSelection`, and `useFileTreeSelector`.
+`@baguette-studios/trees/react` exports `FileTree`, `useFileTree`,
+`useFileTreeSearch`, `useFileTreeSelection`, and `useFileTreeSelector`.
 
 ## React Native usage
 
 ```tsx
-import { FileTree, useFileTree } from '@pierre/trees/react-native';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react-native';
 
 export function NativeExample({ paths }: { paths: string[] }) {
   const { model } = useFileTree({
@@ -119,8 +124,8 @@ renaming, mutations, git status decorations, row customization, and
 ## SSR
 
 ```tsx
-import { preloadFileTree } from '@pierre/trees/ssr';
-import { FileTree, useFileTree } from '@pierre/trees/react';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 
 const preloadedData = preloadFileTree({
   id: 'docs-tree',
@@ -178,7 +183,7 @@ The host element and shadow root read CSS variables such as:
 Translate a Shiki or VS Code theme into tree CSS with `themeToTreeStyles()`:
 
 ```ts
-import { themeToTreeStyles } from '@pierre/trees';
+import { themeToTreeStyles } from '@baguette-studios/trees';
 
 const styles = themeToTreeStyles(theme);
 ```
@@ -204,7 +209,7 @@ Import the web-components entry point only when you need the custom element
 registration side effect:
 
 ```ts
-import '@pierre/trees/web-components';
+import '@baguette-studios/trees/web-components';
 ```
 
 ## Icons, git status, and composition

@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const SSR_GUIDE_PRELOAD_FILE_TREE = docsCodeSnippet(
   'preload-file-tree.ts',
-  `import { preloadFileTree } from '@pierre/trees/ssr';
+  `import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 const payload = preloadFileTree({
   preparedInput,
@@ -15,9 +15,9 @@ const payload = preloadFileTree({
 
 export const SSR_GUIDE_REACT_HYDRATION = docsCodeSnippet(
   'project-tree-client.tsx',
-  `import { FileTree, useFileTree } from '@pierre/trees/react';
-import type { FileTreePreparedInput } from '@pierre/trees';
-import type { FileTreeSsrPayload } from '@pierre/trees/ssr';
+  `import { FileTree, useFileTree } from '@baguette-studios/trees/react';
+import type { FileTreePreparedInput } from '@baguette-studios/trees';
+import type { FileTreeSsrPayload } from '@baguette-studios/trees/ssr';
 
 export function ProjectTreeClient({
   preparedInput,
@@ -40,7 +40,7 @@ export function ProjectTreeClient({
 
 export const SSR_GUIDE_VANILLA_HYDRATION = docsCodeSnippet(
   'vanilla-hydrate.ts',
-  `import { FileTree } from '@pierre/trees';
+  `import { FileTree } from '@baguette-studios/trees';
 
 const fileTree = new FileTree({
   preparedInput,

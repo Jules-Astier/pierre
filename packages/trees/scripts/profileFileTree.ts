@@ -544,7 +544,7 @@ function printHelpAndExit(): never {
     '  --compare <path>       Compare against a prior --json file-tree profile run'
   );
   console.log(
-    '  --no-build             Skip rebuilding @pierre/trees before profiling'
+    '  --no-build             Skip rebuilding @baguette-studios/trees before profiling'
   );
   console.log(
     '  --no-server            Assume the fixture server is already running'
@@ -1140,7 +1140,7 @@ function ensureProductionDistBuild(): void {
     const stderr = decodeOutput(buildResult.stderr);
     throw new Error(
       [
-        'Failed to build @pierre/trees before profiling.',
+        'Failed to build @baguette-studios/trees before profiling.',
         stdout !== '' ? `stdout:\n${stdout}` : null,
         stderr !== '' ? `stderr:\n${stderr}` : null,
       ]

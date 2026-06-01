@@ -1,4 +1,4 @@
-import { preloadFileTree } from '@pierre/trees/ssr';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 import { readSettingsCookies } from '../_components/readSettingsCookies';
 import { ReactDemoClient } from '../_demos/ReactDemoClient';

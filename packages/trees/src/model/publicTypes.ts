@@ -15,7 +15,7 @@ export type FileTreePublicId = string;
 // PathStoreOperation, and the relevant PathStoreConstructorOptions fields).
 //
 // They are NOT re-exports. Keeping a parallel set of `FileTree*` types lets
-// `@pierre/trees` present a self-contained public API: consumers never need to
+// `@baguette-studios/trees` present a self-contained public API: consumers never need to
 // import from `@pierre/path-store` to call `controller.batch(...)`,
 // `controller.move(...)`, etc. Path-store remains a runtime dependency but is
 // not part of the documented surface.

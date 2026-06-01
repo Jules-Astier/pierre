@@ -1,5 +1,5 @@
+import type { GitStatusEntry } from '@baguette-studios/trees';
 import type { FileContents } from '@pierre/diffs';
-import type { GitStatusEntry } from '@pierre/trees';
 
 export const TREE_APP_DEMO_FILES: Readonly<Record<string, FileContents>> = {
   // ---------------------------------------------------------------------------

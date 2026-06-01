@@ -1,6 +1,6 @@
 'use client';
 
-import { FileTree } from '@pierre/trees';
+import { FileTree } from '@baguette-studios/trees';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import { useEffect, useMemo, useRef } from 'react';
 

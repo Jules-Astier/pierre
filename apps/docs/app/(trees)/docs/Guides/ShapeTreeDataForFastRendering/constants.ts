@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const SHAPE_TREE_DATA_PREPARE_LOADER = docsCodeSnippet(
   'load-project-tree-input.ts',
-  `import { prepareFileTreeInput } from '@pierre/trees';
+  `import { prepareFileTreeInput } from '@baguette-studios/trees';
 
 export async function loadProjectTreeInput(projectId: string) {
   const paths = await fetchProjectPaths(projectId);
@@ -15,8 +15,8 @@ export async function loadProjectTreeInput(projectId: string) {
 
 export const SHAPE_TREE_DATA_REACT_TREE = docsCodeSnippet(
   'react-tree.tsx',
-  `import { FileTree, useFileTree } from '@pierre/trees/react';
-import type { FileTreePreparedInput } from '@pierre/trees';
+  `import { FileTree, useFileTree } from '@baguette-studios/trees/react';
+import type { FileTreePreparedInput } from '@baguette-studios/trees';
 
 export function ReactTree({
   preparedInput,
@@ -30,7 +30,7 @@ export function ReactTree({
 
 export const SHAPE_TREE_DATA_VANILLA_MOUNT = docsCodeSnippet(
   'mount-vanilla-tree.ts',
-  `import { FileTree, type FileTreePreparedInput } from '@pierre/trees';
+  `import { FileTree, type FileTreePreparedInput } from '@baguette-studios/trees';
 
 export function mountVanillaTree(
   container: HTMLElement,
@@ -52,7 +52,7 @@ export const SHAPE_TREE_DATA_SMALL_PATHS = docsCodeSnippet(
 
 export const SHAPE_TREE_DATA_PRESORTED = docsCodeSnippet(
   'presorted.ts',
-  `import { preparePresortedFileTreeInput } from '@pierre/trees';
+  `import { preparePresortedFileTreeInput } from '@baguette-studios/trees';
 
 const preparedInput = preparePresortedFileTreeInput([
   'README.md',

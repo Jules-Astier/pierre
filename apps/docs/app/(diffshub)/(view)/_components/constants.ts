@@ -1,5 +1,5 @@
+import type { FileTreeOptions } from '@baguette-studios/trees';
 import type { CodeViewLayout } from '@pierre/diffs';
-import type { FileTreeOptions } from '@pierre/trees';
 
 export const CODE_VIEW_LAYOUT: CodeViewLayout = {
   paddingTop: 0,

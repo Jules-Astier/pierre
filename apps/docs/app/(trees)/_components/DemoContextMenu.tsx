@@ -1,5 +1,5 @@
-import { type ContextMenuTriggerMode } from '@pierre/trees';
-import { preloadFileTree } from '@pierre/trees/ssr';
+import { type ContextMenuTriggerMode } from '@baguette-studios/trees';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 import { sampleFileList } from '../_lib/demo-data';
 import { TREE_NEW_VIEWPORT_HEIGHTS } from '../_lib/dimensions';

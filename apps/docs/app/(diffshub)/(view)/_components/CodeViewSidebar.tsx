@@ -1,13 +1,13 @@
 'use client';
 
+import { FileTree } from '@baguette-studios/trees';
+import { useFileTreeSearch } from '@baguette-studios/trees/react';
 import {
   IconComment,
   IconFileTree,
   IconSearch,
   IconXSquircle,
 } from '@pierre/icons';
-import { FileTree } from '@pierre/trees';
-import { useFileTreeSearch } from '@pierre/trees/react';
 import {
   type CSSProperties,
   memo,

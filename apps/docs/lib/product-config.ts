@@ -39,13 +39,13 @@ export const PRODUCTS: Record<ProductId, ProductConfig> = {
     name: 'Trees',
     tagline: 'A file tree rendering library',
     description:
-      "@pierre/trees is an open source file tree rendering library. It's built for performance and flexibility, is super customizable, and comes packed with features.",
+      "@baguette-studios/trees is an open source file tree rendering library. It's built for performance and flexibility, is super customizable, and comes packed with features.",
     llmsDescription:
       'An open source file tree rendering library for the web. Built for extreme performance on large trees, with React and vanilla JS APIs, SSR support, and customizable styling.',
     basePath: '',
     docsPath: '/docs',
-    packageName: '@pierre/trees',
-    installCommand: 'bun i @pierre/trees',
+    packageName: '@baguette-studios/trees',
+    installCommand: 'bun i @baguette-studios/trees',
     githubUrl: 'https://github.com/pierrecomputer/pierre',
   },
   // Stub microsite. No package, no docs yet — copy is intentionally
@@ -57,7 +57,7 @@ export const PRODUCTS: Record<ProductId, ProductConfig> = {
     description:
       'View code changes from any public GitHub diff or patch URL with a super-freaking-fast, beautiful, and virtualized interface.',
     llmsDescription:
-      'A demo app from The Pierre Computer Company, built with @pierre/diffs and @pierre/trees and enhanced by the new CodeView component.',
+      'A demo app from The Pierre Computer Company, built with @pierre/diffs and @baguette-studios/trees and enhanced by the new CodeView component.',
     basePath: '',
     docsPath: '/',
     packageName: '',

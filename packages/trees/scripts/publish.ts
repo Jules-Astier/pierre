@@ -9,7 +9,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join, relative, resolve } from 'node:path';
 
-// End-to-end release pipeline for `@pierre/trees`. The load-bearing step is
+// End-to-end release pipeline for `@baguette-studios/trees`. The load-bearing step is
 // repacking the generated tarball after deleting the internal `@pierre/path-store`
 // workspace dependency, so the tarball we rehearse is the tarball we publish.
 //
@@ -112,7 +112,7 @@ function packageRoot(): string {
 // Builds trees' dist (the V3 gate runs inside the build script itself) so the
 // tarball we pack next contains up-to-date output with no path-store leaks.
 function buildTrees(): void {
-  console.log('[publish] building @pierre/trees');
+  console.log('[publish] building @baguette-studios/trees');
   run('bun', ['run', 'build'], { cwd: packageRoot(), inherit: true });
 }
 
@@ -253,14 +253,20 @@ function dryRunPublish(tarballPath: string, tag: string): void {
 }
 
 function promoteLatest(version: string): void {
-  console.log(`[publish] promoting @pierre/trees@${version} to latest`);
-  run('npm', ['dist-tag', 'add', `@pierre/trees@${version}`, 'latest'], {
-    inherit: true,
-  });
+  console.log(
+    `[publish] promoting @baguette-studios/trees@${version} to latest`
+  );
+  run(
+    'npm',
+    ['dist-tag', 'add', `@baguette-studios/trees@${version}`, 'latest'],
+    {
+      inherit: true,
+    }
+  );
 }
 
 function tagRelease(version: string): void {
-  const tagName = `@pierre/trees@${version}`;
+  const tagName = `@baguette-studios/trees@${version}`;
   console.log(`[publish] git tag ${tagName}`);
   run('git', ['tag', '-a', tagName, '-m', tagName], { inherit: true });
   run('git', ['push', 'origin', tagName], { inherit: true });
@@ -313,7 +319,7 @@ function main(): void {
   }
 
   console.log(
-    `\n[publish] done — published @pierre/trees@${version} to ${flags.tag}`
+    `\n[publish] done — published @baguette-studios/trees@${version} to ${flags.tag}`
   );
 }
 

@@ -1,6 +1,6 @@
+import { FILE_TREE_DENSITY_PRESETS } from '@baguette-studios/trees';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 import { preloadFile } from '@pierre/diffs/ssr';
-import { FILE_TREE_DENSITY_PRESETS } from '@pierre/trees';
-import { preloadFileTree } from '@pierre/trees/ssr';
 
 import { TREE_NEW_VIEWPORT_HEIGHTS } from '../_lib/dimensions';
 import {

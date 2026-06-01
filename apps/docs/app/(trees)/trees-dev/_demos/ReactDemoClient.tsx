@@ -4,14 +4,14 @@ import type {
   ContextMenuItem,
   ContextMenuOpenContext,
   FileTreeOptions as DemoFileTreeOptions,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
   useFileTreeSearch,
   useFileTreeSelection,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 import { useState } from 'react';
 
 import { ExampleCard } from '../_components/ExampleCard';

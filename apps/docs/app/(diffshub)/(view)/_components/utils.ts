@@ -1,3 +1,4 @@
+import type { GitStatus } from '@baguette-studios/trees';
 import type {
   AnnotationSide,
   ChangeTypes,
@@ -6,7 +7,6 @@ import type {
   DiffLineAnnotation,
   FileDiffMetadata,
 } from '@pierre/diffs';
-import type { GitStatus } from '@pierre/trees';
 
 import type {
   CodeViewCommentFileByItemId,

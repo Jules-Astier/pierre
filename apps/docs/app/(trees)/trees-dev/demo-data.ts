@@ -1,4 +1,4 @@
-import type { FileTreeOptions } from '@pierre/trees';
+import type { FileTreeOptions } from '@baguette-studios/trees';
 
 export const sharedDemoPaths: readonly string[] = [
   'README.md',

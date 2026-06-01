@@ -1,4 +1,4 @@
-import type { ContextMenuOpenContext } from '@pierre/trees';
+import type { ContextMenuOpenContext } from '@baguette-studios/trees';
 import type { CSSProperties } from 'react';
 
 // Positions the hidden Radix trigger so its bottom-left corner sits on the

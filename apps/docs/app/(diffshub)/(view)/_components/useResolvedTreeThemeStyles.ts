@@ -1,9 +1,12 @@
 'use client';
 
+import {
+  themeToTreeStyles,
+  type TreeThemeStyles,
+} from '@baguette-studios/trees';
 import { type DiffsThemeNames, getResolvedOrResolveTheme } from '@pierre/diffs';
 import darkSoftTheme from '@pierre/theme/pierre-dark-soft';
 import lightSoftTheme from '@pierre/theme/pierre-light-soft';
-import { themeToTreeStyles, type TreeThemeStyles } from '@pierre/trees';
 import { type CSSProperties, useEffect, useMemo, useState } from 'react';
 
 import { useTheme } from '@/components/theme-provider';

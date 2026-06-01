@@ -1,17 +1,17 @@
 'use client';
 
+import type { GitStatusEntry } from '@baguette-studios/trees';
+import {
+  FileTree,
+  type FileTreePreloadedData,
+  useFileTree,
+} from '@baguette-studios/trees/react';
 import {
   IconColorDark,
   IconColorLight,
   IconFolders,
   IconTableRowHeader,
 } from '@pierre/icons';
-import type { GitStatusEntry } from '@pierre/trees';
-import {
-  FileTree,
-  type FileTreePreloadedData,
-  useFileTree,
-} from '@pierre/trees/react';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';

@@ -2,15 +2,15 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const REACT_QUICKSTART_INSTALL = docsCodeSnippet(
   'install.sh',
-  `bun add @pierre/trees
-# npm: npm install @pierre/trees
-# pnpm: pnpm add @pierre/trees`
+  `bun add @baguette-studios/trees
+# npm: npm install @baguette-studios/trees
+# pnpm: pnpm add @baguette-studios/trees`
 );
 
 export const REACT_QUICKSTART_PROJECT_TREE = docsCodeSnippet(
   'project-tree.tsx',
-  `import { FileTree, useFileTree } from '@pierre/trees/react';
-import type { FileTreePreparedInput } from '@pierre/trees';
+  `import { FileTree, useFileTree } from '@baguette-studios/trees/react';
+import type { FileTreePreparedInput } from '@baguette-studios/trees';
 
 interface ProjectTreeProps {
   preparedInput: FileTreePreparedInput;
@@ -40,7 +40,7 @@ export const REACT_QUICKSTART_SEARCHABLE_TREE = docsCodeSnippet(
   useFileTree,
   useFileTreeSearch,
   useFileTreeSelection,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 
 export function SearchableTree({ paths }: { paths: readonly string[] }) {
   const { model } = useFileTree({

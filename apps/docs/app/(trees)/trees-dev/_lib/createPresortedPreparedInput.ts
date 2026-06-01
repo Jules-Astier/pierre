@@ -1,7 +1,7 @@
 import {
   type FileTreeOptions,
   preparePresortedFileTreeInput,
-} from '@pierre/trees';
+} from '@baguette-studios/trees';
 
 type FileTreePreparedInput = NonNullable<FileTreeOptions['preparedInput']>;
 

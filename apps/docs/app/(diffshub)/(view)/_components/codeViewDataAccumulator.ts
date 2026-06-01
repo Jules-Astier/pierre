@@ -1,10 +1,13 @@
+import type {
+  FileTreeGitStatusPatch,
+  GitStatusEntry,
+} from '@baguette-studios/trees';
 import {
   type ChangeTypes,
   type CodeViewItem,
   type FileDiffMetadata,
   parsePatchFiles,
 } from '@pierre/diffs';
-import type { FileTreeGitStatusPatch, GitStatusEntry } from '@pierre/trees';
 
 import { getPatchTreePathPrefix } from './gitPatchMetadata';
 import type {

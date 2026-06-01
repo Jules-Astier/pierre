@@ -1,13 +1,13 @@
 'use client';
 
-import { type DiffsThemeNames } from '@pierre/diffs';
-import { useStableCallback } from '@pierre/diffs/react';
 import type {
   FileTreeBatchOperation,
   FileTree as FileTreeModel,
   FileTreeOptions,
-} from '@pierre/trees';
-import { FileTree, useFileTree } from '@pierre/trees/react';
+} from '@baguette-studios/trees';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
+import { type DiffsThemeNames } from '@pierre/diffs';
+import { useStableCallback } from '@pierre/diffs/react';
 import {
   type CSSProperties,
   memo,
@@ -29,7 +29,7 @@ type FileTreeSortComparator = Exclude<
   NonNullable<FileTreeOptions['sort']>,
   'default'
 >;
-// Keeps @pierre/trees from applying its default semantic sort so the sidebar
+// Keeps @baguette-studios/trees from applying its default semantic sort so the sidebar
 // follows the same patch path sequence that drives the code view.
 const PRESERVE_INPUT_ORDER_SORT: FileTreeSortComparator = () => 0;
 

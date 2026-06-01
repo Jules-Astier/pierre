@@ -1,11 +1,11 @@
 'use client';
 
-import { IconFileTreeFill, IconFolders } from '@pierre/icons';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
+import { IconFileTreeFill, IconFolders } from '@pierre/icons';
 import type { FileTreePathOptions } from '@trees/_lib/fileTreePathOptions';
 import Link from 'next/link';
 import { type CSSProperties, useState } from 'react';

@@ -1,6 +1,6 @@
 import '@/app/prose.css';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 import type { PreloadFileOptions } from '@pierre/diffs/ssr';
-import { preloadFileTree } from '@pierre/trees/ssr';
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
 
@@ -106,7 +106,7 @@ const REFERENCE_SECTIONS: readonly DocsSection[] = [
 
 const treesDocsTitle = 'Trees, from Pierre';
 const treesDocsDescription =
-  'Guide-first documentation for @pierre/trees, covering React, vanilla, prepared input, styling, icons, Git status, large trees, and SSR hydration.';
+  'Guide-first documentation for @baguette-studios/trees, covering React, vanilla, prepared input, styling, icons, Git status, large trees, and SSR hydration.';
 
 // Next.js replaces (does not deep-merge) nested metadata objects like
 // `openGraph` and `twitter` from parent segments. Re-declare `images` here

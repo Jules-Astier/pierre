@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const LARGE_TREES_LOAD_WORKSPACE_TREE = docsCodeSnippet(
   'load-workspace-tree.ts',
-  `import { preparePresortedFileTreeInput } from '@pierre/trees';
+  `import { preparePresortedFileTreeInput } from '@baguette-studios/trees';
 
 export async function loadWorkspaceTree() {
   const sortedPaths = await fetchSortedWorkspacePaths();

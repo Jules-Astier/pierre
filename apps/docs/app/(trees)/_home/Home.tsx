@@ -1,4 +1,4 @@
-import { preloadFileTree } from '@pierre/trees/ssr';
+import { preloadFileTree } from '@baguette-studios/trees/ssr';
 
 import { DemoA11y } from '../_components/DemoA11y';
 import { DemoContextMenu } from '../_components/DemoContextMenu';

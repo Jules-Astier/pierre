@@ -1,6 +1,6 @@
 'use client';
 
-import type { GitStatusEntry } from '@pierre/trees';
+import type { GitStatusEntry } from '@baguette-studios/trees';
 import { useMemo, useState } from 'react';
 
 export interface GitStatusControlPreset<Id extends string = string> {

@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const REACT_API_EXAMPLE = docsCodeSnippet(
   'project-tree.tsx',
-  `import { FileTree, useFileTree } from '@pierre/trees/react';
+  `import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 
 export function ProjectTree({ paths }: { paths: readonly string[] }) {
   const { model } = useFileTree({ paths, search: true });

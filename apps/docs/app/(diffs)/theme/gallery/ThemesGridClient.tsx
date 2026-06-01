@@ -1,8 +1,8 @@
 'use client';
 
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 import type { FileDiffMetadata } from '@pierre/diffs';
 import { FileDiff } from '@pierre/diffs/react';
-import { FileTree, useFileTree } from '@pierre/trees/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useRef, useState } from 'react';
 

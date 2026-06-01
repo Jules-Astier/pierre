@@ -1,5 +1,8 @@
+import type {
+  FileTreeGitStatusPatch,
+  GitStatusEntry,
+} from '@baguette-studios/trees';
 import type { AnnotationSide, SelectedLineRange } from '@pierre/diffs';
-import type { FileTreeGitStatusPatch, GitStatusEntry } from '@pierre/trees';
 
 export type ViewerLoadState =
   | 'fetching'

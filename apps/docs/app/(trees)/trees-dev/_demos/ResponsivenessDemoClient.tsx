@@ -1,6 +1,6 @@
 'use client';
 
-import { FileTree, useFileTree } from '@pierre/trees/react';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 import {
   type CSSProperties,
   type KeyboardEvent as ReactKeyboardEvent,

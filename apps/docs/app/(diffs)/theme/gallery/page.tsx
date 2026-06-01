@@ -1,5 +1,5 @@
+import { themeToTreeStyles } from '@baguette-studios/trees';
 import { parseDiffFromFile, resolveTheme } from '@pierre/diffs';
-import { themeToTreeStyles } from '@pierre/trees';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 

@@ -4,8 +4,8 @@ import {
   FILE_TREE_DENSITY_PRESETS,
   type FileTreeDensityKeyword,
   FileTree as VanillaFileTree,
-} from '@pierre/trees';
-import { FileTree, useFileTree } from '@pierre/trees/react';
+} from '@baguette-studios/trees';
+import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ExampleCard } from '../_components/ExampleCard';

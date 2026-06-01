@@ -2,7 +2,7 @@ import { docsCodeSnippet } from '@/lib/docsCodeSnippet';
 
 export const CHOOSE_INTEGRATION_REACT_EXAMPLE = docsCodeSnippet(
   'project-tree.tsx',
-  `import { FileTree, useFileTree } from '@pierre/trees/react';
+  `import { FileTree, useFileTree } from '@baguette-studios/trees/react';
 
 export function ProjectTree({ paths }: { paths: readonly string[] }) {
   const { model } = useFileTree({ paths, search: true });
@@ -13,7 +13,7 @@ export function ProjectTree({ paths }: { paths: readonly string[] }) {
 
 export const CHOOSE_INTEGRATION_VANILLA_EXAMPLE = docsCodeSnippet(
   'mount-tree.ts',
-  `import { FileTree } from '@pierre/trees';
+  `import { FileTree } from '@baguette-studios/trees';
 
 const fileTree = new FileTree({
   paths: ['README.md', 'src/index.ts', 'src/components/Button.tsx'],

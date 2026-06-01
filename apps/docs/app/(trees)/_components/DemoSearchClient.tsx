@@ -1,12 +1,12 @@
 'use client';
 
-import { IconCollapsedRow, IconEyeSlash, IconFolderOpen } from '@pierre/icons';
-import type { FileTreeSearchMode } from '@pierre/trees';
+import type { FileTreeSearchMode } from '@baguette-studios/trees';
 import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
+import { IconCollapsedRow, IconEyeSlash, IconFolderOpen } from '@pierre/icons';
 import Link from 'next/link';
 import { type CSSProperties, type ReactNode, useState } from 'react';
 

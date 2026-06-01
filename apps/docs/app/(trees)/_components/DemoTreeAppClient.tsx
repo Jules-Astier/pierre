@@ -1,10 +1,10 @@
 'use client';
 
+import { FILE_TREE_DENSITY_PRESETS } from '@baguette-studios/trees';
+import type { GitStatusEntry } from '@baguette-studios/trees';
+import type { FileTreePreloadedData } from '@baguette-studios/trees/react';
+import { useFileTree } from '@baguette-studios/trees/react';
 import type { FileContents } from '@pierre/diffs';
-import { FILE_TREE_DENSITY_PRESETS } from '@pierre/trees';
-import type { GitStatusEntry } from '@pierre/trees';
-import type { FileTreePreloadedData } from '@pierre/trees/react';
-import { useFileTree } from '@pierre/trees/react';
 import { TreeApp } from '@trees/_components/TreeApp';
 import type { TreeAppTheme } from '@trees/_components/TreeApp';
 import type { CSSProperties } from 'react';

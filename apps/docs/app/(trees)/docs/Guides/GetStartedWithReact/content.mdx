@@ -4,7 +4,7 @@ Use the React entry point when your surrounding UI already lives in React. The
 hook creates one stable tree model, and the component mounts that model into the
 host element.
 
-#### Install `@pierre/trees`
+#### Install `@baguette-studios/trees`
 
 Use the package root for the vanilla runtime, and the `/react` entry point for
 the React wrapper.
@@ -13,11 +13,11 @@ the React wrapper.
 
 #### Create the model with `useFileTree(...)`
 
-`useFileTree(...)` from `@pierre/trees/react` creates the model exactly once for
-the component lifetime. Later option changes are not a controlled update path.
-If the tree data or runtime behavior changes after mount, update the model
-through methods such as `resetPaths(...)`, `setComposition(...)`,
-`setGitStatus(...)`, or `setIcons(...)`.
+`useFileTree(...)` from `@baguette-studios/trees/react` creates the model
+exactly once for the component lifetime. Later option changes are not a
+controlled update path. If the tree data or runtime behavior changes after
+mount, update the model through methods such as `resetPaths(...)`,
+`setComposition(...)`, `setGitStatus(...)`, or `setIcons(...)`.
 
 For small trees, you can pass raw `paths`. For scalable trees, prefer
 `preparedInput` produced on the server or another non-UI boundary.

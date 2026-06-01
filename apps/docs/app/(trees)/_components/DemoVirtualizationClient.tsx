@@ -4,7 +4,7 @@ import {
   FileTree,
   type FileTreePreloadedData,
   useFileTree,
-} from '@pierre/trees/react';
+} from '@baguette-studios/trees/react';
 import type { CSSProperties } from 'react';
 
 import { TREE_NEW_VIEWPORT_HEIGHTS } from '../_lib/dimensions';
