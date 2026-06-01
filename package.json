@@ -79,6 +79,7 @@
       "preact-render-to-string": "6.6.5",
       "react": "19.2.3",
       "react-dom": "19.2.3",
+      "react-native": "0.85.3",
       "remark-gfm": "4.0.1",
       "shadcn": "3.3.1",
       "shiki": "4.0.2",

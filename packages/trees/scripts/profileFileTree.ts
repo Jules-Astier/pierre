@@ -1008,8 +1008,8 @@ function percentile(sortedValues: number[], percentileValue: number): number {
   );
 }
 
-function decodeOutput(output: Uint8Array): string {
-  return new TextDecoder().decode(output).trim();
+function decodeOutput(output: ArrayLike<number>): string {
+  return new TextDecoder().decode(new Uint8Array(output)).trim();
 }
 
 function overlapDurationUs(

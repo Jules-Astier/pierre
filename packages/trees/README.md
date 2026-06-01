@@ -2,11 +2,13 @@
 
 Path-first file tree UI for the web.
 
-`@pierre/trees` ships one implementation through four public entry points:
+`@pierre/trees` ships one implementation through five public entry points:
 
 - `@pierre/trees` — vanilla model, mounting API, prepared input helpers, icons,
   theming, and core types
 - `@pierre/trees/react` — React hooks and `<FileTree model={...} />`
+- `@pierre/trees/react-native` — React Native hooks and a native
+  `<FileTree model={...} />`
 - `@pierre/trees/ssr` — preload helpers for declarative-shadow-DOM SSR
 - `@pierre/trees/web-components` — custom-element registration side effect
 
@@ -91,6 +93,28 @@ export function Example({ paths }: { paths: string[] }) {
 
 `@pierre/trees/react` exports `FileTree`, `useFileTree`, `useFileTreeSearch`,
 `useFileTreeSelection`, and `useFileTreeSelector`.
+
+## React Native usage
+
+```tsx
+import { FileTree, useFileTree } from '@pierre/trees/react-native';
+
+export function NativeExample({ paths }: { paths: string[] }) {
+  const { model } = useFileTree({
+    initialExpansion: 'open',
+    paths,
+    search: true,
+  });
+
+  return <FileTree model={model} style={{ height: 320 }} />;
+}
+```
+
+The React Native entry uses the same path-first controller as the web renderer,
+but renders with native primitives and a `VirtualizedList` instead of DOM,
+shadow roots, CSS, or `react-dom`. It supports expansion, selection, search,
+renaming, mutations, git status decorations, row customization, and
+`scrollToPath()`.
 
 ## SSR
 

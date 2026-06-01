@@ -17,7 +17,11 @@ import { fileURLToPath } from 'node:url';
 // Resolve the @pierre/vscode-icons package location
 // ---------------------------------------------------------------------------
 
-const pkgJsonUrl = import.meta.resolve('@pierre/vscode-icons/package.json');
+const resolveImport = import.meta.resolve;
+if (resolveImport == null) {
+  throw new Error('import.meta.resolve is required to locate vscode icons.');
+}
+const pkgJsonUrl = await resolveImport('@pierre/vscode-icons/package.json');
 const pkgDir = dirname(fileURLToPath(pkgJsonUrl));
 const svgsDir = join(pkgDir, 'svgs');
 const themesDir = join(pkgDir, 'scripts', 'themes');

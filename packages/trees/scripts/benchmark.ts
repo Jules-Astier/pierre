@@ -224,8 +224,9 @@ function readAospFixture(): {
     );
   }
 
+  const compressedFixture = new Uint8Array(readFileSync(fixturePath));
   const rawPayload = JSON.parse(
-    gunzipSync(readFileSync(fixturePath)).toString('utf8')
+    gunzipSync(compressedFixture).toString('utf8')
   ) as {
     allExpandedPaths?: unknown;
     paths?: unknown;
