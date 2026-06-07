@@ -1,0 +1,27 @@
+{
+  "name": "@pierre/trees-compare",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:deps && vite build",
+    "build:deps": "output=$(cd ../../packages/trees && bun run build 2>&1) && echo '[trees] Successfully cleaned and built.' || (echo \"$output\" >&2 && exit 1)",
+    "dev": "bun run build:deps && vite --host 127.0.0.1 --clearScreen=false",
+    "preview": "vite preview --host 127.0.0.1",
+    "tsc": "bun run build:deps && tsgo --noEmit --pretty"
+  },
+  "dependencies": {
+    "@baguette-studios/trees": "workspace:*",
+    "@pierre/trees": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-native-web": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}
