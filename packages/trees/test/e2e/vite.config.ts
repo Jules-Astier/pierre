@@ -4,6 +4,15 @@ import { defineConfig } from 'vite';
 const defaultPort = 9221;
 const portFromEnv = Number(process.env.FILE_TREE_E2E_PORT);
 const port = Number.isFinite(portFromEnv) ? portFromEnv : defaultPort;
+const reactNativeWebEntry = resolve(
+  import.meta.dirname,
+  '..',
+  '..',
+  'node_modules',
+  'react-native-web',
+  'dist',
+  'index.js'
+);
 
 export default defineConfig({
   publicDir: resolve(
@@ -19,5 +28,8 @@ export default defineConfig({
     host: '127.0.0.1',
     port,
     strictPort: true,
+  },
+  resolve: {
+    alias: [{ find: /^react-native$/, replacement: reactNativeWebEntry }],
   },
 });

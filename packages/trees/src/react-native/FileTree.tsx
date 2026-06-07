@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -42,6 +43,8 @@ const DEFAULT_FILE_ICON = {
 } as const;
 
 const ROW_ACCESSIBILITY_ROLE = Platform.OS === 'web' ? undefined : 'button';
+
+export type FileTreeRenderMode = 'auto' | 'scroll-view' | 'virtualized';
 
 interface FileTreeSnapshot {
   focusedParentPath: string | null;
@@ -80,6 +83,7 @@ export interface FileTreeProps {
   renderRowAccessory?: (
     context: FileTreeRenderRowAccessoryContext
   ) => ReactNode;
+  renderMode?: FileTreeRenderMode;
   rowStyle?:
     | StyleProp<ViewStyle>
     | ((row: NativeFileTreeVisibleRow) => StyleProp<ViewStyle>);
@@ -311,6 +315,16 @@ function getIconGap(itemHeight: number): number {
   return Math.max(4, Math.round(6 * getDensityFactor(itemHeight)));
 }
 
+function resolveRenderMode(
+  renderMode: FileTreeRenderMode
+): Exclude<FileTreeRenderMode, 'auto'> {
+  if (renderMode !== 'auto') {
+    return renderMode;
+  }
+
+  return Platform.OS === 'web' ? 'scroll-view' : 'virtualized';
+}
+
 function renderIndentGuides(
   row: NativeFileTreeVisibleRow,
   itemHeight: number,
@@ -363,6 +377,7 @@ export function FileTree({
   renderIcon,
   renderRow,
   renderRowAccessory,
+  renderMode = 'auto',
   rowStyle,
   rowTextStyle,
   searchInputStyle,
@@ -373,9 +388,13 @@ export function FileTree({
   const listRef = useRef<VirtualizedList<NativeFileTreeVisibleRow | null>>(
     null
   );
+  const scrollViewRef = useRef<ScrollView>(null);
+  const scrollViewViewportHeightRef = useRef(0);
   const snapshot = useFileTreeSelector(model, getSnapshot, areSnapshotsEqual);
   const hoveredRowsRef = useRef(0);
   const [isTreeHovered, setIsTreeHovered] = useState(false);
+  const effectiveRenderMode = resolveRenderMode(renderMode);
+  const usesScrollView = effectiveRenderMode === 'scroll-view';
 
   useEffect(() => {
     const request = snapshot.scrollRequest;
@@ -386,15 +405,29 @@ export function FileTree({
     const viewPosition =
       request.offset === 'center' ? 0.5 : request.offset === 'top' ? 0 : 0;
     try {
-      listRef.current?.scrollToIndex({
-        animated: true,
-        index: request.visibleIndex,
-        viewPosition,
-      });
+      if (usesScrollView) {
+        const rowOffset = request.visibleIndex * snapshot.itemHeight;
+        const viewportHeight = scrollViewViewportHeightRef.current;
+        const centeredOffset =
+          rowOffset - Math.max(0, (viewportHeight - snapshot.itemHeight) / 2);
+        scrollViewRef.current?.scrollTo({
+          animated: true,
+          y: Math.max(
+            0,
+            request.offset === 'center' ? centeredOffset : rowOffset
+          ),
+        });
+      } else {
+        listRef.current?.scrollToIndex({
+          animated: true,
+          index: request.visibleIndex,
+          viewPosition,
+        });
+      }
     } finally {
       model.clearScrollRequest(request.id);
     }
-  }, [model, snapshot.scrollRequest]);
+  }, [model, snapshot.itemHeight, snapshot.scrollRequest, usesScrollView]);
 
   const getItem = useCallback(
     (tree: NativeFileTree, index: number) => tree.getVisibleRow(index),
@@ -441,12 +474,14 @@ export function FileTree({
       setIsTreeHovered(false);
     }
   }, []);
-  const renderItem = useCallback(
-    ({ item: row }: ListRenderItemInfo<NativeFileTreeVisibleRow | null>) => {
-      if (row == null) {
-        return null;
-      }
-
+  const handleScrollViewLayout = useCallback(
+    (event: { nativeEvent: { layout: { height: number } } }) => {
+      scrollViewViewportHeightRef.current = event.nativeEvent.layout.height;
+    },
+    []
+  );
+  const renderVisibleRow = useCallback(
+    (row: NativeFileTreeVisibleRow) => {
       const label = getNativeFileTreeRowLabel(row);
       const activate = () => {
         model.activateRow(row);
@@ -571,6 +606,16 @@ export function FileTree({
       testID,
     ]
   );
+  const renderItem = useCallback(
+    ({ item: row }: ListRenderItemInfo<NativeFileTreeVisibleRow | null>) =>
+      row == null ? null : renderVisibleRow(row),
+    [renderVisibleRow]
+  );
+
+  const visibleRows =
+    usesScrollView && snapshot.visibleCount > 0
+      ? model.getVisibleRows(0, snapshot.visibleCount - 1)
+      : [];
 
   const extraData = useMemo(
     () => ({
@@ -605,20 +650,36 @@ export function FileTree({
           value={snapshot.searchValue}
         />
       ) : null}
-      <VirtualizedList
-        contentContainerStyle={contentContainerStyle}
-        data={model}
-        extraData={extraData}
-        getItem={getItem}
-        getItemCount={getItemCount}
-        getItemLayout={getItemLayout}
-        keyboardShouldPersistTaps={keyboardShouldPersistTaps}
-        keyExtractor={keyExtractor}
-        onScrollToIndexFailed={handleScrollToIndexFailed}
-        ref={listRef}
-        renderItem={renderItem}
-        style={[styles.list, listStyle]}
-      />
+      {usesScrollView ? (
+        <ScrollView
+          contentContainerStyle={[styles.scrollContent, contentContainerStyle]}
+          keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+          onLayout={handleScrollViewLayout}
+          ref={scrollViewRef}
+          style={[styles.list, styles.scrollList, listStyle]}
+          testID={testID == null ? undefined : `${testID}-scroll-view`}
+        >
+          {visibleRows.map((row) => (
+            <View key={row.targetPath}>{renderVisibleRow(row)}</View>
+          ))}
+        </ScrollView>
+      ) : (
+        <VirtualizedList
+          contentContainerStyle={contentContainerStyle}
+          data={model}
+          extraData={extraData}
+          getItem={getItem}
+          getItemCount={getItemCount}
+          getItemLayout={getItemLayout}
+          keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+          keyExtractor={keyExtractor}
+          onScrollToIndexFailed={handleScrollToIndexFailed}
+          ref={listRef}
+          renderItem={renderItem}
+          style={[styles.list, listStyle]}
+          testID={testID == null ? undefined : `${testID}-virtualized-list`}
+        />
+      )}
     </View>
   );
 }
@@ -736,6 +797,7 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: '#f8f8f8',
     flex: 1,
+    minHeight: 0,
   },
   pressedRow: {
     backgroundColor: '#dceff8',
@@ -756,6 +818,7 @@ const styles = StyleSheet.create({
   root: {
     backgroundColor: '#f8f8f8',
     flex: 1,
+    minHeight: 0,
   },
   row: {
     alignItems: 'center',
@@ -780,6 +843,12 @@ const styles = StyleSheet.create({
   },
   selectedRow: {
     backgroundColor: '#e1f1fb',
+  },
+  scrollContent: {
+    flexGrow: 0,
+  },
+  scrollList: {
+    minHeight: 0,
   },
   visibleIndentGuide: {
     opacity: 0.75,

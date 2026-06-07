@@ -1,6 +1,6 @@
 {
   "name": "@baguette-studios/trees",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "license": "apache-2.0",
   "files": [
     "dist",
@@ -96,6 +96,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-native": "catalog:",
+    "react-native-web": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
